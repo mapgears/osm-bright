@@ -260,7 +260,15 @@
 // AREA LABELS
 // =====================================================================
 
-#area_label {
+#area_labels_z10[zoom=10],
+#area_labels_z11[zoom=11],
+#area_labels_z12[zoom=12],
+#area_labels_z13[zoom=13],
+#area_labels_z14[zoom=14],
+#area_labels_z15[zoom=15],
+#area_labels_z16[zoom=16],
+#area_labels_z17[zoom=17],
+#area_labels[zoom>=18] {
   // Bring in labels gradually as one zooms in, bases on polygon area
   [zoom>=10][area>102400000],
   [zoom>=11][area>25600000],
@@ -347,8 +355,10 @@
 /* WATERWAY LABELS
 /* ================================================================== */
 
-#waterway_label[type='river'][zoom>=13],
-#waterway_label[type='canal'][zoom>=15],
+#waterway_label_ngen2[type='river'][zoom>=13][zoom<=15],
+#waterway_label[type='river'][zoom>=16],
+#waterway_label_ngen2[type='canal'][zoom=15],
+#waterway_label[type='canal'][zoom>=16],
 #waterway_label[type='stream'][zoom>=17] {
   text-name: '[name]';
   text-face-name: @sans_italic;
@@ -380,7 +390,8 @@
 /* ROAD LABELS
 /* ================================================================== */
 
-#motorway_label[zoom>=11][zoom<=14][reflen<=8] {
+#motorway_shield_ngen1[zoom>=11][zoom<=12][reflen<=8],
+#motorway_shield_ngen2[zoom>=13][zoom<=14][reflen<=8] {
   shield-name: "[ref]";
   shield-size: 9;
   shield-face-name: @sans_bold;
@@ -412,8 +423,12 @@
   [zoom=14] { shield-min-distance: 180; }
 }
 
-#motorway_label[type='motorway'][zoom>9],
-#motorway_label[type='trunk'][zoom>9] {
+#motorway_label_ngen1[type='motorway'][zoom>=10][zoom<=12],
+#motorway_label_ngen2[type='motorway'][zoom>=13][zoom<=15],
+#motorway_label[type='motorway'][zoom>=16],
+#motorway_label_ngen1[type='trunk'][zoom>=10][zoom<=12],
+#motorway_label_ngen2[type='trunk'][zoom>=13][zoom<=15],
+#motorway_label[type='trunk'][zoom>=16] {
   text-name:"[name]";
   text-face-name:@sans_bold;
   text-placement:line;
@@ -427,9 +442,12 @@
   [zoom=13] { text-min-distance:100; }
 }
 
-#mainroad_label[type='primary'][zoom>12],
-#mainroad_label[type='secondary'][zoom>13],
-#mainroad_label[type='tertiary'][zoom>13] {
+#mainroad_label_ngen2[type='primary'][zoom>=13][zoom<=15],
+#mainroad_label[type='primary'][zoom>=16],
+#mainroad_label_ngen2[type='secondary'][zoom>=14][zoom<=15],
+#mainroad_label[type='secondary'][zoom>=16],
+#mainroad_label_ngen2[type='tertiary'][zoom>=14][zoom<=15],
+#mainroad_label[type='tertiary'][zoom>=14] {
   text-name:'[name]';
   text-face-name:@sans;
   text-placement:line;
@@ -440,7 +458,8 @@
   text-size:11;
 }
 
-#minorroad_label[zoom>14] {
+#minorroad_label_ngen2[zoom=15],
+#minorroad_label[zoom>=16] {
   text-name:'[name]';
   text-face-name:@sans;
   text-placement:line;

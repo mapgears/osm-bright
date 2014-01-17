@@ -5,7 +5,8 @@
 /* At lower zoomlevels, just show major automobile routes: motorways
 and trunks. */
 
-#roads_low[zoom>=5][zoom<=8] {
+#roads_low_ngen00[zoom=5],
+#roads_low_ngen0[zoom>=6][zoom<=8] {
   [type='motorway'] { line-color: @motorway_line; }
   [type='trunk'] { line-color: @trunk_line; }
   [zoom=5] {
@@ -25,7 +26,7 @@ and trunks. */
 /* At mid-level scales start to show primary and secondary routes
 as well. */
 
-#roads_med[zoom>=9][zoom<=10] {
+#roads_med_ngen1[zoom>=9][zoom<=10] {
   [type='motorway'],
   [type='motorway_link'] {
     line-color: @motorway_line;
@@ -65,9 +66,15 @@ come in as well.
 
 /* ---- Casing ----------------------------------------------- */
 
-#roads_high::outline[zoom>=11][zoom<=20],
-#tunnel[render='1_outline'][zoom>=11][zoom<=20],
-#bridge[render='1_outline'][zoom>=11][zoom<=20]{
+#roads_high_ngen1::outline[zoom>=11][zoom<=12],
+#roads_high_ngen2::outline[zoom>=13][zoom<=15],
+#roads_high::outline[zoom>=16][zoom<=20],
+#tunnel_ngen1[render='1_outline'][zoom>=11][zoom<=12],
+#tunnel_ngen2[render='1_outline'][zoom>=13][zoom<=15],
+#tunnel[render='1_outline'][zoom>=16][zoom<=20],
+#bridge_ngen1[render='1_outline'][zoom>=11][zoom<=12],
+#bridge_ngen2[render='1_outline'][zoom>=13][zoom<=15],
+#bridge[render='1_outline'][zoom>=16][zoom<=20]{
   /* -- colors & styles -- */
   line-cap: round;
   [bridge=1],
@@ -174,9 +181,15 @@ come in as well.
 }
 
 
-#roads_high[zoom>=11][zoom<=20],
-#tunnel[render='3_inline'][zoom>=11][zoom<=20],
-#bridge[render='3_inline'][zoom>=11][zoom<=20]{
+#roads_high_ngen1[zoom>=11][zoom<=12],
+#roads_high_ngen2[zoom>=13][zoom<=15],
+#roads_high[zoom>=16][zoom<=20],
+#tunnel_ngen1[render='3_inline'][zoom>=11][zoom<=12],
+#tunnel_ngen2[render='3_inline'][zoom>=13][zoom<=15],
+#tunnel[render='3_inline'][zoom>=16][zoom<=20],
+#bridge_ngen1[render='3_inline'][zoom>=11][zoom<=12],
+#bridge_ngen2[render='3_inline'][zoom>=13][zoom<=15],
+#bridge[render='3_inline'][zoom>=16][zoom<=20]{
   /* -- colors & styles -- */
   line-color: @standard_fill;
   [type='motorway'],
@@ -287,8 +300,10 @@ come in as well.
 }
 
 /* ---- Bridge fill for dashed lines -------------------------------- */
-#tunnel[render='2_line'][zoom>=14][zoom<=20],
-#bridge[render='2_line'][zoom>=14][zoom<=20]{
+#tunnel_ngen2[render='2_line'][zoom=15],
+#tunnel[render='2_line'][zoom>=16][zoom<=20],
+#bridge_ngen2[render='2_line'][zoom>=14][zoom<=15],
+#bridge[render='2_line'][zoom>=16][zoom<=20]{
   /* -- colors & styles -- */
   [stylegroup='noauto'] {
     line-color: @land;
@@ -348,7 +363,9 @@ come in as well.
 /* AEROWAYS
 /* ================================================================== */
 
-#aeroway[zoom>9] {
+#aeroway_ngen1[zoom>=10][zoom<=12]
+#aeroway_ngen2[zoom>=13][zoom<=15]
+#aeroway[zoom>=16] {
   line-color:@aeroway;
   line-cap:butt;
   line-join:miter;
