@@ -56,17 +56,16 @@
   text-fill:@road_text;
   text-halo-fill:@road_halo;
   text-halo-radius:1;
-  text-size:16;
   text-clip: false;
-  [zoom=10] { text-min-distance:60; text-spacing: 60; }
-  [zoom=11] { text-min-distance:80; text-spacing: 80; }
-  [zoom=12] { text-min-distance:120; text-spacing: 120; }
-  [zoom=13] { text-min-distance:160; text-spacing: 160; }
-  [zoom=14] { text-min-distance:160; text-spacing: 160; }
-  [zoom=15] { text-min-distance:180; text-spacing: 180; }
-  [zoom=16] { text-min-distance:180; text-spacing: 180; }
-  [zoom=17] { text-min-distance:200; text-spacing: 200; }
-  [zoom=18] { text-min-distance:200; text-spacing: 200; }
+  [zoom=10] { text-size: 16; text-min-distance:60; text-spacing: 60; }
+  [zoom=11] { text-size: 16; text-min-distance:80; text-spacing: 80; }
+  [zoom=12] { text-size: 16; text-min-distance:120; text-spacing: 120; }
+  [zoom=13] { text-size: 16; text-min-distance:160; text-spacing: 160; }
+  [zoom=14] { text-size: 16; text-min-distance:160; text-spacing: 160; }
+  [zoom=15] { text-size: 17; text-min-distance:180; text-spacing: 180; }
+  [zoom=16] { text-size: 18; text-min-distance:180; text-spacing: 180; }
+  [zoom=17] { text-size: 19; text-min-distance:200; text-spacing: 200; }
+  [zoom=18] { text-size: 20; text-min-distance:200; text-spacing: 200; }
 }
 
 #mainroad_label_ngen2[type='primary'][zoom>=13][zoom<=15],
@@ -81,14 +80,13 @@
   text-fill:@road_text;
   text-halo-fill:@road_halo;
   text-halo-radius:1;
-  text-size:15;
   text-clip: false;
-  [zoom=13] { text-min-distance:160; text-spacing: 160; }
-  [zoom=14] { text-min-distance:160; text-spacing: 160; }
-  [zoom=15] { text-min-distance:180; text-spacing: 180; }
-  [zoom=16] { text-min-distance:180; text-spacing: 180; }
-  [zoom=17] { text-min-distance:200; text-spacing: 200; }
-  [zoom=18] { text-min-distance:200; text-spacing: 200; }
+  [zoom=13] { text-size: 15; text-min-distance:160; text-spacing: 160; }
+  [zoom=14] { text-size: 15; text-min-distance:160; text-spacing: 160; }
+  [zoom=15] { text-size: 15; text-min-distance:180; text-spacing: 180; }
+  [zoom=16] { text-size: 16; text-min-distance:180; text-spacing: 180; }
+  [zoom=17] { text-size: 17; text-min-distance:200; text-spacing: 200; }
+  [zoom=18] { text-size: 18; text-min-distance:200; text-spacing: 200; }
 }
 
 #minorroad_label_ngen2[zoom=15],
@@ -101,9 +99,9 @@
   text-halo-radius:1;
   text-clip: false;
   [zoom=15] { text-size: 10; text-min-distance:150; text-spacing: 150; }
-  [zoom=16] { text-size: 11; text-min-distance:180; text-spacing: 180; }
-  [zoom=17] { text-size: 12; text-min-distance:210; text-spacing: 210; }
-  [zoom=18] { text-size: 13; text-min-distance:240; text-spacing: 240; }
+  [zoom=16] { text-size: 12; text-min-distance:180; text-spacing: 180; }
+  [zoom=17] { text-size: 14; text-min-distance:210; text-spacing: 210; }
+  [zoom=18] { text-size: 16; text-min-distance:240; text-spacing: 240; }
 }
 
 /* ================================================================== */
