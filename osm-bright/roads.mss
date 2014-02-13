@@ -5,7 +5,8 @@
 /* At lower zoomlevels, just show major automobile routes: motorways
 and trunks. */
 
-#roads_low_ngen00[zoom=5],
+//#roads_low_ngen00[zoom=5],
+#roads_low_ngen00[zoom<=5],
 #roads_low_ngen0[zoom>=6][zoom<=8] {
   [type='motorway'] { line-color: @motorway_line; }
   [type='trunk'] { line-color: @trunk_line; }
