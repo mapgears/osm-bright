@@ -4,6 +4,12 @@
  * - Water ways
  * - Administrative Boundaries
  *
+ * ngen_*[zoom levels] tolerance
+ * - ngen_000[zoom=4] 20000
+ * - ngen_00[zoom=5] 10000
+ * - ngen_0[zoom>=6][zoom<=8] 500
+ * - ngen_1[zoom>=9][zoom<=12] 50
+ * - ngen_2[zoom>=13][zoom<=15] 5
  */
 
 /* ================================================================== */
@@ -17,9 +23,12 @@
   polygon-gamma: 0.75;
 }
 
-#landuse_gen0[zoom>3][zoom<=9],
-#landuse_gen1[zoom>9][zoom<=12],
-#landuse[zoom>12] {
+#landuse_ngen000[zoom=4],
+#landuse_ngen00[zoom=5],
+#landuse_ngen0[zoom>=6][zoom<=8],
+#landuse_ngen1[zoom>=9][zoom<=12],
+#landuse_ngen2[zoom>=13][zoom<=15],
+#landuse[zoom>=16] {
   [type='cemetery']      { polygon-fill: @cemetery; }
   [type='college']       { polygon-fill: @school; }
   [type='commercial']    { polygon-fill: @industrial; }
@@ -41,7 +50,10 @@
   [type='wood']          { polygon-fill: @wooded; }
 }
 
-#landuse_overlays[type='nature_reserve'][zoom>6] {
+#landuse_overlays_ngen0[type='nature_reserve'][zoom>=7][zoom<=8],
+#landuse_overlays_ngen1[type='nature_reserve'][zoom>=9][zoom<=12],
+#landuse_overlays_ngen2[type='nature_reserve'][zoom>=13][zoom<=15],
+#landuse_overlays[type='nature_reserve'][zoom>=16] {
   line-color: darken(@wooded,25%);
   line-opacity:  0.3;
   line-dasharray: 1,1;
@@ -54,14 +66,18 @@
   [zoom=11] { line-width: 1.5; }
   [zoom>=12] { line-width: 2.0; }
 }
- 
-#landuse_overlays[type='wetland'][zoom>11] {
+
+#landuse_overlays_ngen1[type='wetland'][zoom=12],
+#landuse_overlays_ngen1[type='wetland'][zoom>=13][zoom<=15],
+#landuse_overlays[type='wetland'][zoom>=16] {
   [zoom>11][zoom<=14] { polygon-pattern-file:url(img/marsh-16.png); }
   [zoom>14] { polygon-pattern-file:url(img/marsh-32.png);}
-  }
+}
 
 /* ---- BUILDINGS ---- */
-#buildings[zoom>=12][zoom<=16] {
+#buildings_ngen1[zoom=12],
+#buildings_ngen2[zoom>=13][zoom<=15],
+#buildings[zoom=16] {
   polygon-fill:@building;
   [zoom>=14] {
     line-color:darken(@building,5%);
@@ -91,9 +107,12 @@
 
 Map { background-color: @water; }
 
-#water_gen0[zoom>3][zoom<=9],
-#water_gen1[zoom>9][zoom<=12],
-#water[zoom>12] {
+#water_ngen000[zoom=4],
+#water_ngen00[zoom=5],
+#water_ngen0[zoom>=6][zoom<=8],
+#water_ngen1[zoom>=9][zoom<=12],
+#water_ngen2[zoom>=13][zoom<=15],
+#water[zoom>=16] {
   polygon-fill: @water;
 }
 
@@ -101,7 +120,8 @@ Map { background-color: @water; }
 /* WATER WAYS
 /* ================================================================== */
 
-#waterway_low[zoom>=8][zoom<=12] {
+#waterway_low_ngen0[zoom=8],
+#waterway_low_ngen1[zoom>=9][zoom<=12] {
   line-color: @water;
   [zoom=8] { line-width: 0.1; }
   [zoom=9] { line-width: 0.2; }
@@ -110,7 +130,7 @@ Map { background-color: @water; }
   [zoom=12]{ line-width: 0.8; }
 }
 
-#waterway_med[zoom>=13][zoom<=14] {
+#waterway_med_ngen2[zoom>=13][zoom<=14] {
   line-color: @water;
   [type='river'],
   [type='canal'] {
@@ -125,7 +145,8 @@ Map { background-color: @water; }
   }
 }
   
-#waterway_high[zoom>=15] {
+#waterway_high_ngen2[zoom=15],
+#waterway_high[zoom>=16] {
   line-color: @water;
   [type='river'],
   [type='canal'] {
@@ -160,45 +181,14 @@ Map { background-color: @water; }
 /* ADMINISTRATIVE BOUNDARIES
 /* ================================================================== */
 
-
-#admin[admin_level=2][zoom>1] {
+#admin_countries_ngen00[zoom>=2][zoom<=5],
+#admin_countries_ngen0[zoom>=6][zoom<=8],
+#admin_countries_ngen1[zoom>=9][zoom<=12],
+#admin_countries_ngen2[zoom>=13][zoom<=15],
+#admin_countries[zoom>=16] {
   line-color:@admin_2;
   line-width:0.5;
   [zoom=2] { line-opacity: 0.25; }
   [zoom=3] { line-opacity: 0.3; }
   [zoom=4] { line-opacity: 0.4; }
-}
-
-/* ================================================================== */
-/* BARRIER POINTS
-/* ================================================================== */
-
-
-#barrier_points[zoom>=17][stylegroup = 'divider'] {
-  marker-height: 2;
-  marker-fill: #c7c7c7;
-  marker-line-opacity:0;
-  marker-allow-overlap:true;
-}
-
-/* ================================================================== */
-/* BARRIER LINES
-/* ================================================================== */
-
-#barrier_lines[zoom>=17][stylegroup = 'gate'] {
-  line-width:2.5;
-  line-color:#aab;
-  line-dasharray:3,2;
-}
-
-#barrier_lines[zoom>=17][stylegroup = 'fence'] {
-  line-width:1.75;
-  line-color:#aab;
-  line-dasharray:1,1;
-}
-
-#barrier_lines[zoom>=17][stylegroup = 'hedge'] {
-  line-width:3;
-  line-color:darken(@park,5%);
-
 }
