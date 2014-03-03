@@ -3,6 +3,7 @@
  * - Water areas
  * - Water ways
  * - Administrative Boundaries
+ * - Barrier points and lines
  *
  * ngen_*[zoom levels] tolerance
  * - ngen_000[zoom=4] 20000
@@ -191,4 +192,38 @@ Map { background-color: @water; }
   [zoom=2] { line-opacity: 0.25; }
   [zoom=3] { line-opacity: 0.3; }
   [zoom=4] { line-opacity: 0.4; }
+}
+
+/* ================================================================== */
+/* BARRIER POINTS
+/* ================================================================== */
+
+
+#barrier_points[zoom>=17][stylegroup = 'divider'] {
+  marker-height: 2;
+  marker-fill: #c7c7c7;
+  marker-line-opacity:0;
+  marker-allow-overlap:true;
+}
+
+/* ================================================================== */
+/* BARRIER LINES
+/* ================================================================== */
+
+#barrier_lines[zoom>=17][stylegroup = 'gate'] {
+  line-width:2.5;
+  line-color:#aab;
+  line-dasharray:3,2;
+}
+
+#barrier_lines[zoom>=17][stylegroup = 'fence'] {
+  line-width:1.75;
+  line-color:#aab;
+  line-dasharray:1,1;
+}
+
+#barrier_lines[zoom>=17][stylegroup = 'hedge'] {
+  line-width:3;
+  line-color:darken(@park,5%);
+
 }
