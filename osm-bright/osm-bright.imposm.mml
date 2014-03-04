@@ -584,7 +584,7 @@
         "geometry_field": "geometry",
         "id": "admin_buildings_ngen1",
         "key_field": "",
-        "table": "( SELECT geometry, type, name\n    FROM osm_buildings_ngen1\n  ORDER BY ST_YMin(ST_Envelope(geometry)) DESC\n) AS data",
+        "table": "( SELECT geometry, type, name\n    FROM osm_buildings_ngen1\n  ORDER BY ymin DESC\n) AS data",
         "type": "postgis",
         "extent_cache": "auto"
       },
@@ -609,7 +609,7 @@
         "geometry_field": "geometry",
         "id": "admin_buildings_ngen2",
         "key_field": "",
-        "table": "( SELECT geometry, type, name\n    FROM osm_buildings_ngen2\n  ORDER BY ST_YMin(ST_Envelope(geometry)) DESC\n) AS data",
+        "table": "( SELECT geometry, type, name\n    FROM osm_buildings_ngen2\n  ORDER BY ymin DESC\n) AS data",
         "type": "postgis",
         "extent_cache": "auto"
       },
@@ -633,7 +633,7 @@
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "geometry_field": "geometry",
         "key_field": "",
-        "table": "( SELECT geometry, type, name\n    FROM osm_buildings\n  ORDER BY ST_YMin(ST_Envelope(geometry)) DESC\n) AS data",
+        "table": "( SELECT geometry, type, name\n    FROM osm_buildings\n  ORDER BY ymin DESC\n) AS data",
         "type": "postgis",
         "extent_cache": "auto"
       },
